@@ -1,0 +1,14 @@
+@startuml
+
+class Person {
+    -firstName
+    -lastName
+
+    +Person(firstName, lastName)
+}
+
+class NameSorter {
+}
+
+NameSorter o-- Person
+@enduml
