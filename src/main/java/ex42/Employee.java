@@ -8,12 +8,13 @@ package ex42;
 import ex41.Person;
 
 public class Employee extends Person {
+
     private String salary;
 
 
     //Setter for salary
     public Employee(String firstName, String lastName, String salary) {
-        super();
+        super(firstName, lastName);
         this.salary = salary;
     }
 
