@@ -5,19 +5,20 @@
 
 package ex42;
 
-public class Employee {
-    private float salary;
+import ex41.Person;
+
+public class Employee extends Person {
+    private String salary;
+
 
     //Setter for salary
-    public Employee(float salary) {
+    public Employee(String firstName, String lastName, String salary) {
+        super();
         this.salary = salary;
     }
 
     //getter for salary
-    public float getSalary() {
+    public String getSalary() {
         return this.salary;
     }
-
-    //getter for full name and salary
-
 }
