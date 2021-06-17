@@ -22,14 +22,18 @@ public class ParsingDataFiles {
         System.out.println(outputString);
     }
 
+    //Create the output String
     private String generateOutputString(ArrayList<Employee> employeeInputList) {
         String outputString = "Last      First     Salary\n--------------------------\n";
+        // Get the employees from the arraylist
         outputString += generateOutputFromArrayList(employeeInputList);
         return outputString;
     }
 
+    //Get the employees from the arrayList
     private String generateOutputFromArrayList(ArrayList<Employee> employeeInputList) {
         String outputString = "";
+        //For loop to get each individual employee
         for (int i = 0; i < employeeInputList.size(); i++) {
             outputString += employeeInputList.get(i).getLastName();
             outputString += getNumSpaces(employeeInputList.get(i).getLastName());
@@ -41,6 +45,7 @@ public class ParsingDataFiles {
         return outputString;
     }
 
+    //get the number of spaces after the last name, and first name
     private String getNumSpaces(String lastNameString) {
         int numSpaces = 10 - lastNameString.length();
         String spacesString = "";
@@ -50,17 +55,20 @@ public class ParsingDataFiles {
         return spacesString;
     }
 
+    //create an Array list of employees
     private ArrayList<Employee> getEmployeesFromFile() {
         ArrayList<Employee> employeeInputList = new ArrayList<Employee>();
         try {
             //Assigns the name of the file and Scans it in
             File inputFile = new File("src/main/resources/exercise42_input.txt");
             Scanner in = new Scanner(inputFile);
+            //While loop to get all the employees inputed
             while(in.hasNextLine()) {
                 String employeeInput = in.nextLine();
                 Employee employee = createEmployee(employeeInput);
                 employeeInputList.add(employee);
             }
+        //Stop when no new line
         } catch(FileNotFoundException FNFE) {
             System.out.println("An error occurred while getting the file");
             FNFE.printStackTrace();
@@ -68,6 +76,7 @@ public class ParsingDataFiles {
         return employeeInputList;
     }
 
+    //Create an Employee
     private Employee createEmployee(String employeeInput) {
         String firstName = "";
         String lastName = "";
