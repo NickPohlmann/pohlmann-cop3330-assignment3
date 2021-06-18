@@ -20,6 +20,13 @@ public class WebsiteGenerator {
         boolean javaScriptFolder = websiteGenerator.getInputFolder("Do you want a folder for JavaScript (y/n)? ");
         boolean cssFolder = websiteGenerator.getInputFolder("Do you want a folder for CSS (y/n)? ");
 
+        File file = new File(String.format("%s",websiteName));
+        boolean bool = file.mkdir();
+        String currentDirectory = System.getProperty("user.dir");
+
+        File js = new File(String.format("%s/%s/js", currentDirectory,websiteName));
+        js.mkdir();
+        System.out.print(bool);
     }
 
 
